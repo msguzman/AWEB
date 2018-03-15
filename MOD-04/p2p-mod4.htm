@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Caluladora</title>
+  <meta charset="utf-8">
+  <style type="text/css">
+  h1{
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 2%;
+
+  }
+    div{
+      border: 1px solid;
+      text-align: center;
+      width: 350px;
+      margin-left: 40%;
+      height: 400px;
+      border-radius: 10px 10px 10px 10px;
+      background-color: #f0f0f0;
+      border-color: #9C9C9C;
+    }
+    #num{
+      width: 90%;
+      height: 60px;
+      background-color: #D7D7D7;
+      border: 1px solid #9C9C9C;
+      border-radius: 5px 5px 5px 5px;
+      box-shadow: inset -1px -1px 1px 0px #9C9C9C,inset 1px 1px 2px 0px #9C9C9C;
+      height:75px;
+      width:250;
+      font-size: 50px;
+      margin-bottom: -10px;
+    }
+    .nombre{
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: grey;
+    }
+    .b1{
+      margin-top: -5px;
+      margin-left: 4%;
+      float: left;
+      height: 60px;
+      width: 70px;
+      border-radius: 5px 5px 5px 5px;
+    }
+    .b2{
+      margin-left: 4%;
+      padding: 5%;
+      float: left;
+      margin-top: 3%;
+      height: 60px;
+      width: 70px;
+      border-radius: 5px 5px 5px 5px;
+    }
+    .b3{
+      margin-left: 4%;
+      padding: 5%;
+      float: left;
+      height: 60px;
+      margin-top: 3%;
+      width: 70px;
+      height: 130px;
+      border-radius: 5px 5px 5px 5px;
+    }
+    .b4{
+      margin-left: 4%;
+      float: left;
+      height: 60px;
+      margin-top: -17%;
+      width: 153px;
+      border-radius: 5px 5px 5px 5px;
+    }
+    .b5{
+      margin-left: 4.5%;
+      padding: 5%;
+      float: left;
+      margin-top: 3%;
+      height: 60px;
+      width: 70px;
+      margin-top: -17%;
+      border-radius: 5px 5px 5px 5px;
+    }
+
+  </style>
+  <script type="text/javascript">
+    var num, acc = 0, op = "";
+    function square() {
+      var num = document.getElementById("num");
+      num.value = num.value * num.value;
+    }
+    function inverse() {
+      var num = document.getElementById("num");
+      num.value = 1/num.value;
+    }
+    function raiz() {
+      var num = document.getElementById("num");
+      num.value = Math.sqrt(num.value);
+
+    }
+    function entero () {
+      var num = document.getElementById("num");
+      num.value = (num.value>=0)? Math.floor(num.value):-Math.ceil(num.value)
+    }
+    function mas()   { acc = num.value;  op = "+"; }
+    function menos() { acc = num.value;  op = "-"; }
+    function multipplicar() { acc = num.value;  op = "*"; }
+    function dividir() { acc = num.value;  op = "/"; }
+    function elevado() {acc= num.value; op= "^";}
+    function calcular() {
+      if (op === "+") {num.value = (+acc + +num.value)}
+      if (op === "-") {num.value = (+acc - +num.value)}
+      if (op === "*") {num.value = (+acc * +num.value)}
+      if (op === "/") {num.value = (+acc / +num.value)}
+      if (op === "^") {num.value= Math.pow(+acc, +num.value)}
+    }
+    function inic ()   {num = document.getElementById("num");}
+    function vaciar () {num.value = "";}  
+  </script>
+</head>
+<body onLoad="inic()">
+  <h1>Calculadora de Mirla Mieses Guzman</h1>
+  <div>
+    <p>
+      <input type="text" size="12" id="num" onClick="vaciar()">
+    </p>
+     <p class="nombre">mGuzman</p>
+    <p>
+    <button onClick="mas()" class="b1">+</button>
+    <button onClick="menos()" class="b1">-</button>
+    <button onClick="multipplicar()" class="b1">*</button>
+    <button onClick="dividir()" class="b1">/</button>
+    <button onClick="square()" class="b2"> x<sup>2</sup></button>
+    <button onClick="raiz()" class="b2"> √</button>
+    <button onClick="inverse()" class="b2">1/x</button>
+    <button onClick="calcular()" class="b3">=</button>
+    <button onClick="entero()" class="b4" >Entero</button>
+    <button onClick="elevado()" class="b5"> x^y </button>
+    
+    </p>
+   
+  </div>
+</body>
+</html>
